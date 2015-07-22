@@ -1,0 +1,147 @@
+
+*{
+  font-family: questa, serif;
+  letter-spacing: 0.1234em;
+}
+
+html{}
+
+body{
+  background: transparent;
+  background-image: url(../images/paper.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: saturation;
+  background-attachment: fixed;
+  background-position: left -20px bottom -10px;
+}
+
+header{
+  margin: 0 auto;
+}
+
+header p{
+  font-size: 2em;
+}
+
+header div{
+  display: inline-block;
+  padding: 1em;
+  margin-left: 1em;
+}
+
+#logo{
+  background-color: rgba(0,0,0,0.45);
+  color: white;
+  padding: 0 5px;
+  margin: 0;
+}
+
+#pusher{
+  height: 100%;
+}
+
+#addMore{
+  background-color: orange;
+  clear: both;
+}
+
+h1{
+  font-size: 1.4321em;
+}
+
+footer{}
+
+.job{
+  padding: 0.8em;
+  margin: 1em 0.1em;
+  background-color: rgba(255,255,255,0.85);
+  overflow-y: visible;
+  border-radius: 3px;
+  float: left;
+}
+
+.jobList{
+  padding: 1em;
+  background-color: grey;
+}
+
+.tt-suggestion,.tt-menu{
+  background-color: white;
+}
+
+p{
+  color: azure;
+  letter-spacing: initial;
+  text-align: justify;
+  text-justify: inter-word;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+
+p button{
+  color: darkgrey;
+}
+
+a{
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+}
+
+a.user-link{
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+ul{}
+
+input[type="text"], textarea{
+  border-radius: 5px;
+  padding: 0.5em;
+}
+
+input[type="radio"], input[type="checkbox"]{
+  margin: 0 0.3em;
+}
+
+button, input[type="button"], input[type="submit"]{
+  width: 7em;
+  padding: 0.5em;
+  position: relative;
+  top: 1px;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus, textarea:focus, button:focus{
+  box-shadow: 0px 0px 3px black;
+}
+
+button:focus{
+  box-shadow: 0px 0px 5px black;
+}
+
+.features ul{
+  list-style-type: square;
+}
+
+.row{
+  padding: 1em;
+}
+
+@media all and (min-width: 992px){
+  #filters{}
+}
+@media all and (max-width: 991px){
+  #filters{
+    padding: 3.21em;
+  }
+}
