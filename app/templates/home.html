@@ -35,9 +35,7 @@
     <li ng-repeat="lead in leads track by $index">
       <a href="{{lead.url}}">{{lead.jobtitle}} - {{lead.company}} - {{lead.formattedLocation}}</a>
     </li>
-    <li class="animate-repeat" ng-if="leads.length == 0">
-      <strong>No results found...</strong>
-    </li>
+    <strong ng-if="leads.length == 0">No results found...</strong>
     <li>
       <span id=indeed_at><a href="http://www.indeed.com/">jobs</a> by <a
 href="http://www.indeed.com/" title="Job Search"><img
