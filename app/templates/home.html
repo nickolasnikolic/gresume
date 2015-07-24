@@ -16,9 +16,11 @@
       <li ng-repeat="job in jobsData track by $index">
         <div>
           <h3 class="leadGeneration" data-spy='scroll' data-target="popover">
-            <span ng-mouseover="makeShift(job.title, job.location)" class="leadTitle"><a>{{job.title}}</span>
-            -
-            <span ng-mouseover="makeShift(job.title, job.location)" class="leadLocation">{{job.location}}</a></span>
+            <a ng-mouseover="makeShift(job.title, job.location)">
+              <span class="leadTitle">{{job.title}}</span>
+              -
+              <span class="leadLocation">{{job.location}}</span>
+            </a>
           </h3>
           <p><small>{{job.wages}}</small>-{{job.description}}</p>
         </div>
