@@ -1,88 +1,84 @@
-gresumeApp.controller('IndexController', ['$scope', '$state', 'workplaces', function($scope, $state, workplaces) {
+gresumeApp.controller('IndexController', ['$scope', '$state', function($scope, $state) {}])
 
-  var substringMatcher = function(strs) {
-    return function findMatches(q, cb) {
-      var matches, substringRegex;
+gresumeApp.controller('HomeController', ['$scope', '$state', function($scope, $state) {
+  document.title = 'gresume - home'; //set the page title
 
-      // an array that will be populated with substring matches
-      matches = [];
+  $scope.jobsData = [];
 
-      // regex used to determine if a string contains the substring `q`
-      substrRegex = new RegExp(q, 'i');
+  $.getJSON('../api/home')
+    .success(function(data) {
 
-      // iterate through the pool of strings and for any string that
-      // contains the substring `q`, add it to the `matches` array
-      $.each(strs, function(i, str) {
-        if (substrRegex.test(str)) {
-          matches.push(str);
-        }
-      });
+      //console.log(data);
+      $scope.jobsData = data;
+      console.log($scope.jobsData);
 
-      cb(matches);
-    };
-  };
+      $scope.$apply();
 
-  $('#jobName').typeahead({
-    hint: true,
-    highlight: true,
-    minLength: 1
-  },
-  {
-    source: substringMatcher(workplaces.workplaces)
-  });
+    });
 
-  $('#locationName').typeahead({
-    hint: true,
-    highlight: true,
-    minLength: 1
-  },
-  {
-    source: substringMatcher(workplaces.cities)
-  });
+  $( '#popover' ).hide();
+  $scope.makeShift = function(jobtitle, joblocation){
+    $( '#popover' ).hide();
+    $( '#popover' ).fadeIn();
 
-  $('#searchButton').click(function(){
+    var job = jobtitle;
+    var location = joblocation;
 
-    var job = $('#jobName').val();
-    var location = $('#locationName').val();
-
-    console.log(job + ' ' + location);
-
-    $.getJSON('../api/home/' + job + '/' + location)
+    $.getJSON('../api/selection/' + job + '/' + location )
       .success(function(data) {
 
         console.log(data.results);
-        $scope.jobsData = data.results;
-
+        $scope.leads = data.results;
         $scope.$apply();
-
       })
-      .error(function(error){
+      .error(function(error) {
         console.log('error:');
         console.log(error);
       });
 
+  };
+
+  $('#jobButton').click(function() {
+
+    var title = $('#jobTitle').val();
+    var location = $('#jobLocation').val();
+    var description = $('#jobDescription').val();
+    var wages = $('#jobWages').val();
+
+    $scope.jobsData.push({
+      'title': title,
+      'location': location,
+      'description': description,
+      'wages': wages
+    });
+
+    console.log($scope.jobs);
+    $.post( '../api/home', {
+      'title': title,
+      'location': location,
+      'description': description,
+      'wages': wages
+    } );
+
+    $('#jobTitle').val('');
+    $('#jobLocation').val('');
+    $('#jobDescription').val('');
+    $('#jobWages').val('');
+
   });
 
-}])
-
-gresumeApp.controller('HomeController', ['$scope', '$state', function($scope, $state) {
-  document.title = 'heroes - selection'; //set the page title
-
-  $scope.page = 1;
-  $scope.noShow = false;
-  $scope.addMoreJobs = function(){
+  $scope.addMoreJobs = function() {
 
     var job = $('#jobName').val();
     var location = $('#locationName').val();
-    $.getJSON('../api/selection/' + job + '/' + location + '/' + $scope.page++)
+    $.getJSON('../api/home/' + job + '/' + location + '/' + $scope.page++)
       .success(function(data) {
 
         console.log(data.results);
         $scope.jobsData = _.union($scope.jobsData, data.results);
         $scope.$apply();
-        //setTimeout(function(){$('#gridDisplay').packery();},250);//HACK
       })
-      .error(function(error){
+      .error(function(error) {
         console.log('error:');
         console.log(error);
       });

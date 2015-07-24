@@ -8,12 +8,12 @@ html{}
 
 body{
   background: transparent;
-  background-image: url(../images/paper.jpg);
+  background-image: url(../images/dog.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-blend-mode: saturation;
+  background-blend-mode: lighten;
   background-attachment: fixed;
-  background-position: left -20px bottom -10px;
+  background-position: left -50px;
 }
 
 header{
@@ -31,14 +31,27 @@ header div{
 }
 
 #logo{
+  position: relative;
+  left: 0.8em;
+  top: -0.35em;
+}
+
+#banner{
   background-color: rgba(0,0,0,0.45);
-  color: white;
-  padding: 0 5px;
+  color: #ccc;
+  padding: 0 15px;
   margin: 0;
 }
 
-#pusher{
-  height: 100%;
+#popover{
+  background-color: rgba( 50, 50, 50, 0.5 );
+  position: fixed;
+  left: 60%;
+  top: 30%;
+  /*height: 68%;*/
+  width: 38.5%;
+  border-radius: 5px;
+  padding: 1em;
 }
 
 #addMore{
@@ -46,7 +59,8 @@ header div{
   clear: both;
 }
 
-h1{
+h1, h2, h3, h4{
+  color: #000;
   font-size: 1.4321em;
 }
 
@@ -66,21 +80,28 @@ footer{}
   background-color: grey;
 }
 
+.topBar{
+  margin-bottom: 2em;
+}
+
 .tt-suggestion,.tt-menu{
   background-color: white;
 }
 
 p{
-  color: azure;
+  color: #000;
   letter-spacing: initial;
   text-align: justify;
   text-justify: inter-word;
   text-overflow: ellipsis;
   word-break: keep-all;
 }
+#jobListings > li > div > p{
+  width: 50%;
+}
 
 p button{
-  color: darkgrey;
+  color: #333;
 }
 
 a{
@@ -103,6 +124,14 @@ a:hover{
 }
 
 ul{}
+li{
+
+}
+
+input{
+  color: black;
+  font-size: 1.2em;
+}
 
 input[type="text"], textarea{
   border-radius: 5px;
@@ -115,9 +144,7 @@ input[type="radio"], input[type="checkbox"]{
 
 button, input[type="button"], input[type="submit"]{
   width: 7em;
-  padding: 0.5em;
-  position: relative;
-  top: 1px;
+  padding: 0.7em;
   border-radius: 5px;
 }
 
@@ -134,7 +161,7 @@ button:focus{
 }
 
 .row{
-  padding: 1em;
+  margin-left: 0;
 }
 
 @media all and (min-width: 992px){
