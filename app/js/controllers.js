@@ -45,7 +45,7 @@ gresumeApp.controller('HomeController', ['$scope', '$state', function($scope, $s
     var description = $('#jobDescription').val();
     var wages = $('#jobWages').val();
 
-    $scope.jobsData.push({
+    $scope.jobsData.unshift({
       'title': title,
       'location': location,
       'description': description,
