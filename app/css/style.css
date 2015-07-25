@@ -13,7 +13,7 @@ body{
   background-repeat: no-repeat;
   background-blend-mode: lighten;
   background-attachment: fixed;
-  background-position: left -50px;
+  background-position: left top;
 }
 
 header{
