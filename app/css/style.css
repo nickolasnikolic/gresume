@@ -59,7 +59,7 @@ header div{
   clear: both;
 }
 
-h1, h2, h3, h4{
+h2, h3, h4{
   color: #000;
   font-size: 1.4321em;
 }
@@ -125,7 +125,7 @@ a:hover{
 
 ul{}
 li{
-
+  list-style: none;
 }
 
 input{
