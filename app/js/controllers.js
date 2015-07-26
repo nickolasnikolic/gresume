@@ -1,7 +1,7 @@
 gresumeApp.controller('IndexController', ['$scope', '$state', function($scope, $state) {}])
 
 gresumeApp.controller('HomeController', ['$scope', '$state', function($scope, $state) {
-  document.title = 'gresume - home'; //set the page title
+  document.title = 'felons.work - home'; //set the page title
 
   $scope.jobsData = [];
 
